@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Kanban.Controllers
 {
-    public class UsuarioController : Controller
+    public class UsuarioController : ControllerBase
     {
         private readonly ILogger<UsuarioController> _logger;
         private IUsuarioRepository _usuario;

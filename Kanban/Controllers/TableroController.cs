@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Kanban.Controllers
 {
-    public class TableroController : Controller
+    public class TableroController : ControllerBase
     {
         private readonly ILogger<TableroController> _logger;
         private ITableroRepository _repository;
