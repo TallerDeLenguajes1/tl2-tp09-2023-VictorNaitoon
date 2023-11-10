@@ -53,15 +53,16 @@ namespace Kanban.Repository
         {
             Usuario usuario = new Usuario();
 
-            var query = $"SELECT * FROM usuario WHERE id_usuario = {idUsuario}";
-
             using (SQLiteConnection conexion = new SQLiteConnection(cadenaConexion))
             {
-                SQLiteCommand command = new SQLiteCommand(query, conexion);
-
                 conexion.Open();
 
-                using (SQLiteDataReader reader = command.ExecuteReader())
+                SQLiteCommand command = conexion.CreateCommand();
+                command.CommandText = $"SELECT * FROM usuario WHERE id_usuario = @idUsuario";
+
+                command.Parameters.Add(new SQLiteParameter("@idUsuario", idUsuario));
+
+                using(SQLiteDataReader reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {

@@ -7,7 +7,7 @@ namespace Kanban.Controllers
     public class UsuarioController : Controller
     {
         private readonly ILogger<UsuarioController> _logger;
-        private UsuarioRepository _usuario;
+        private IUsuarioRepository _usuario;
 
         public UsuarioController(ILogger<UsuarioController> logger)
         {
